@@ -10,6 +10,7 @@ All notable benchmark, data, and viewer changes are tracked in this file.
   - `meta-llama/llama-4-scout`
   - `meta-llama/llama-3.1-8b-instruct`
 - Added canonical launch-date metadata for the Meta models above so release-date and model-age charts include them.
+- Added an MIT license at the repo root and surfaced the license in the README so GitHub detects the project license directly.
 
 ### Changed
 - Refreshed published viewer datasets in `data/latest/*` and `data/v2/latest/*` so [viewer/index.html](viewer/index.html) and [viewer/index.v2.html](viewer/index.v2.html) surface the new Meta rows.
