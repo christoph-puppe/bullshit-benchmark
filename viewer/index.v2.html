@@ -599,6 +599,21 @@
     }
     .chart-legend-toggle:hover { background: #eaf5ef; }
 
+    .size-scatter-panel {
+      display: flex;
+      flex-direction: column;
+    }
+    .size-scatter-copy {
+      display: grid;
+      gap: 8px;
+      min-height: 96px;
+      align-content: start;
+    }
+    .size-scatter-copy h2,
+    .size-scatter-copy .subtle {
+      margin: 0;
+    }
+
     .reasoning-panel-head {
       display: flex;
       align-items: flex-start;
@@ -886,6 +901,7 @@
     @media (max-width: 1100px) {
       .two-col, .diff-grid, .four-chart-grid { grid-template-columns: 1fr; }
       .compare-controls { grid-template-columns: 1fr 1fr; }
+      .size-scatter-copy { min-height: 0; }
     }
     @media (max-width: 900px) {
       .ab-grid { grid-template-columns: 1fr; }
@@ -1072,16 +1088,20 @@
     </div>
 
     <div class="two-col">
-      <section class="panel">
-        <h2 data-bench-heading="Do Bigger Models Perform Better?">BullshitBench v2: Do Bigger Models Perform Better?</h2>
-        <p class="subtle">Public total parameter counts vs. green rate. The x-axis uses a log scale so 8B through 1T remain readable.</p>
+      <section class="panel size-scatter-panel">
+        <div class="size-scatter-copy">
+          <h2 data-bench-heading="Do Bigger Models Perform Better?">BullshitBench v2: Do Bigger Models Perform Better?</h2>
+          <p class="subtle">Public total parameter counts vs. green rate. The x-axis uses a log scale so 8B through 1T remain readable.</p>
+        </div>
         <div class="chart-legend" id="sizeScatterTotalLegend"></div>
         <svg id="sizeScatterTotal" class="scatter-svg" viewBox="0 0 600 420"></svg>
         <p class="small-note" id="sizeScatterTotalMeta"></p>
       </section>
-      <section class="panel">
-        <h2 data-bench-heading="Do Active Parameters Predict Detection?">BullshitBench v2: Do Active Parameters Predict Detection?</h2>
-        <p class="subtle">Activated parameter counts from public sources vs. green rate. Dense models appear when active parameters equal total.</p>
+      <section class="panel size-scatter-panel">
+        <div class="size-scatter-copy">
+          <h2 data-bench-heading="Do Active Parameters Matter?">BullshitBench v2: Do Active Parameters Matter?</h2>
+          <p class="subtle">Activated parameter counts from public sources vs. green rate. Dense models appear when active parameters equal total.</p>
+        </div>
         <div class="chart-legend" id="sizeScatterActiveLegend"></div>
         <svg id="sizeScatterActive" class="scatter-svg" viewBox="0 0 600 420"></svg>
         <p class="small-note" id="sizeScatterActiveMeta"></p>
