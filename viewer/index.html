@@ -2249,6 +2249,10 @@
     function prettyModelName(row) {
       const raw = rawModelName(row).replace(/_/g, "-");
       const tokens = raw.split("-").filter(Boolean);
+      const org = normalizeOrg(modelOrg(row));
+      if (org === "x-ai" && tokens[tokens.length - 1] && tokens[tokens.length - 1].toLowerCase() === "beta") {
+        tokens.pop();
+      }
       if (!tokens.length) {
         return "Model";
       }

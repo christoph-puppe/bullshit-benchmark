@@ -1720,6 +1720,8 @@ function rawModelName(r) {
 }
 function prettyModel(r) {
   const raw=rawModelName(r).replace(/_/g,"-"), tok=raw.split("-").filter(Boolean);
+  const org = normOrg(modelOrg(r));
+  if (org === "x-ai" && tok[tok.length - 1] && tok[tok.length - 1].toLowerCase() === "beta") tok.pop();
   if(!tok.length) return "Model";
   const rawNorm = raw.trim().toLowerCase();
   const rl=normReasoning(r?.model_reasoning_level);
